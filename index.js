@@ -1,7 +1,7 @@
 'use strict';
 
-function getDogImage(numberOfImages = 3) {
-  fetch(`https://dog.ceo/api/breeds/image/random/${numberOfImages}`)
+function getDogRandomImage(breed) {
+  fetch(`https://dog.ceo/api/breed/hound-${breed}/`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
@@ -22,7 +22,7 @@ function displayResults(responseJson) {
 function watchForm() {
   $('#get-picture-form').submit(event => {
     event.preventDefault();
-    getDogImage($('.number-dogs').val());
+    getDogRandomImage($('.random-breed').val());
   });
 }
 
